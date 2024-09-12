@@ -1,4 +1,4 @@
-import DraftFlag from "./DraftFlag";
+import Banner from "./Banner";
 import { formatRelative } from "date-fns";
 
 import useMarkdownProcessor from "../hooks/useMarkdownProcessor";
@@ -8,7 +8,8 @@ export default function Page({ pageData }) {
 
   return (
     <>
-      {!pageData.published && <DraftFlag />}
+      {!pageData.released && <Banner text="UNRELEASED" />}
+      {!pageData.published && <Banner text="DRAFT" />}
       <article>
         <h1>{pageData.title}</h1>
         {reactContent}

@@ -1,10 +1,12 @@
 import Page from "../components/Page";
 import { getAllPaths, getPageData } from "../lib/file-utils";
+import { isFuture, parseISO } from "date-fns";
 
 export default function Resource({ pageData }) {
   const isProduction = process.env.NODE_ENV === "production";
+  pageData.released = !isFuture(parseISO(pageData.date));
 
-  if (pageData.published || !isProduction) {
+  if ((pageData.published && pageData.released) || !isProduction) {
     return <Page pageData={pageData} />;
   } else {
     return (
