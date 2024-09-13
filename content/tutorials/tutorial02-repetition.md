@@ -1,12 +1,10 @@
 ---
 title: "CS 467 - Tutorial Two"
-date: "2023-02-23"
-due: "2023-02-28T14:15"
+date: "2024-09-18"
+due: "2024-09-23T14:15"
 name: "Tutorial 02"
-published: false
+published: true
 ---
-
-
 
 #### Goals
 
@@ -14,114 +12,94 @@ published: false
 - Learn a technique for off-screen rendering
 - Learn about mouse and keyboard interaction
 
-
-
 ## Prerequisites
 
-
-1. Accept the assignment on our [Github Classroom](https://classroom.github.com/a/ARp8PJei). 
+1. Accept the assignment on our [Github Classroom]().
 1. Clone the repository GitHub classroom creates to your local computer (in your shell, type `git clone` and the name of the repository)
-
-
 
 ## Task
 
 For this tutorial, you are going to play with repetition.
 
-*Links to the references for the included functions can be found at the bottom.*
+_Links to the references for the included functions can be found at the bottom._
 
 ![Tutorial 02 Goal](../images/tutorials/tutorial02/tutorial02.png)
 
-### Part 1: Establish the grid
+This image doesn't fully capture what this looks like, because the lines will follow the mouse as you move it around the canvas.
 
-Create a new constant called `CELL_SIZE` and set it to 50. This will be the size of a "cell" in the grid. 
+What you are looking at is a grid of squares. Each square has lines drawn from points ta fixed intervals around the square to connect at a point in the middle. That point will be controlled by the mouse.
 
-In the `draw()` function, write a pair of nested for loops for `x` and `y`. Start both at `CELL_SIZE` and increment by `CELL_SIZE` until you hit the bounds of the canvas (`width` and `height`). We start `x` and `y` off at `CELL_SIZE` for two reasons. First, `(x,y)` will be the point in the center of the cell. Second, we will give the grid a border of `CELL_SIZE/2` (provided we keep the canvas dimensions multiples of 100).
+The complexity of the image comes from the fact that the lines are drawn with a low alpha value and the squares overlap.
 
-To make sure that you have this working correctly, draw a circle centered on `(x, y)` that is smaller then `CELL_SIZE`. 
+### Part 1: Map the mouse to one square
 
-### Part 2: Write a `drawShape()` function
+Create a new constant called `SQ_SIZE` and set it to 50. This will be the size of one of our squares.
 
-Create a new function called `drawShape()` and give it arguments `(x,y)`. 
+Write a `drawContents()` function. This will handle drawing the contents of the square. In your `draw()` function, set the background color and then call your `drawContents()` function. _You can use whatever color scheme you like, but to get the above look, it is white lines on a black background._
 
-It should draw a circle centered at `(x,y)`. To make it more interesting, remove the fill and just draw the outline. Remove the call to `circle` from the `for` loops and replace it with a call to your new function. 
+Before we draw the lines, we are going to just follow the mouse with a small circle. Create two variables called `mx` and `my`, and set them to `mouseX` and `mouseY`. Draw your circle at `(mx, my)`. You should now have a circle that follows your mouse around the canvas.
 
-Experiment with different circle sizes -- when the circle exceeds the bounds of the cell, interesting interactions start happening.
+We want something a little bit different, however. We want to constrain the circle to the inside of the square. What we are shooting for is _proportional_ movement of the circle. If the mouse is at the top of the square, the circle should be at the top of the square. If the mouse is at the bottom of the square, the circle should be at the bottom of the square.
 
-### Part 3: Add in a new graphics context
+We are going to enlist the help of a very helpful p5js function: `map()`. This function allows us to map a value from one range to another. It takes five arguments: the value we are converting, the start of the current range, the end of the current range, the start of the new range, and the end of the new range.
 
-Currently, your program is drawing each circle individually. There are moment when this is beneficial (i.e., when we want them all to behave slightly differently), however, we want them to be like a rubber stamp, so we are going to draw it once and just paste it around. We will do this with an **offscreen graphics context**.
+Change the definitions of `mx` and `my` to map the mouse position to points in the square. You should now see the circle move around in constrains of the square proportionally to how you move the mouse around the canvas.
 
-We can create a new graphics context with `createGraphics()`. It takes two required arguments, the `width` and the `height`. 
+### Part 2: Draw the lines
 
-Let's use this to rewrite the `drawShape()` function. 
+Now we are going to replace the circle with lines.
 
-Remove the `x`, `y` arguments. We no longer need `x` and `y`, because we are drawing with respect to the origin in a small region roughly the size of the grid cell. 
+Add a new variable at the top called `NUM_LINES` and set it to 5 (we will turn this up later, but five is a good number for seeing what you are doing).
 
-At the start of the function make a new variable called `ctx` (for "context") and initialize it using `createGraphics()`.  Set the dimensions to be twice `CELL_SIZE` for both width and height (this will allow us to extend outside of the cell).
+Make a loop and use it to draw `NUM_LINES` line that are equally spaced along the top edge of the square, terminating at `(mx, my)`. _Be careful with your math here. This is a classic "fence post" problem. You want lines on both extremes of the square's boundaries, and you want to have the right number of lines along the side as well. If you aren't sure you have it right, draw a square with no fill of the appropriate size while you are debugging._
 
-To draw into the graphics context, you use the same functions as before, but this time you call them on the graphics object. So, for example, if you have code like `circle(width/2, height/2)`, we would rewrite this as `ctx.circle(ctx.width/2, ctx.height/2)`. Notice that even `width` and `height` are switched so they refer to the dimensions of the graphics context. 
+Once you have the lines along one side working, progressively add the lines for the remaining three sides (checking after each new set). _Hint: you can use the same loop for all four lines, just think about the role played by the loop variable for each one._
 
-All of our p5.js functions should work inside of the graphics context. Note, however, that if you use `background()`, it will create a solid background, and we won't be able to overlap our shapes. There is an alternate function called `clear` which makes all of the pixels transparent (though you don't need it here).
+The lines from the four corners will be duplicated. This is fine, when we reduce their alpha, this will make those edges a little stronger.
 
-At the end of the function, return `ctx`.
+Don't forget to get rid of the circle now (and the square, if you added it in for debugging).
 
+### Part 3: Add a graphics context
 
-Now, *before* the `for` loops, call `drawShape`, and save the result in a variable called `cell`.
+Now that you have the function, you could put a loop into the `draw()` function and repeat it all over the screen. of course, to do that, you would need to change the `mx` and `my` variables to be based on the position of the square. We are going to do something a little different.
 
+We have the ability to make an **offscreen graphics context**. This is like an invisible canvas that we can draw into. We can draw into the graphics context and then we can use it like a rubber stamp, pasting it all over the place without having to redraw the contents.
 
-We can display our graphics context using the `image()` function. You would call it with the `cell` graphics context like this: `image(cell, x, y)`. Of course, we were assuming that `(x,y)` was the center of the cell, and `image()` uses its coordinates for the upper left corner. We can change this behavior using `imageMode(CENTER)` which instead uses the coordinates for the center of the image (there are similar functions that serve the same purpose for rectangles (upper left corner by default) and ellipses (centered by default)). 
+Create a new variable at the top of your program called `sq_ctx`. Inside of `setup()`, set it to `createGraphics(SQ_SIZE, SQ_SIZE)`. This will create a small context that is just big enough to fit one of our squares. _This has to be done in `setup()` because p5js isn't initialized before that._
 
-If you did that all correctly, there shouldn't be much change. 
+We can use all of the same drawing functions inside of our new graphics context as we can on the main canvas. The difference is that we need to call the functions _on_ the context. So, for example, if we had the code `circle(x, y, 10)`, we would change it to `sq_ctx.circle(x, y, 10)`. We don't have to do this to every function -- just the ones that govern the drawing. So, for example, if you want to set the stroke color (which you do), you need to use `sq_ctx.stroke(255)`. The `map` function, on the other hand, is not dependant on any particular drawing context, so we can use it as is. There is an important gotcha here, `width` and `height` will return the dimensions of the main canvas, `sq_ctx.width` and `sq_ctx.height` will return the dimensions of the graphics context. A common error is to forget which one you want and using the wrong one.
 
+In your `drawContents()` function, replace all of the drawing functions with their `sq_ctx` versions. You will want to add a `sq_ctx.clear()` at the start of the function to make sure that you aren't drawing on top of the previous contents when the program loops.
 
-### Part 4: Add mouse interaction
+To actually draw the contents of the graphics context, you use the `image()` function. You call it with the graphics context as the first argument, and the position you want to draw it at as the second and third arguments. Add a call to `image` to your `draw()` function. _Note that you still need the call to drwaContents() in `draw()` -- this is setting the contents of the graphics context, but it won't produce anything you can see without the `image()` call._
 
-In p5.js, mouse location is available in two variables: `mouseX` and `mouseY`. *Note that these are not available in our offscreen graphics context, because the mouse isn't there...*
+### Part 4: Making the grid
 
-The way we are going to use the mouse is to duplicate its movements in all of the grid cells. To do this, we need to map the position of the mouse in the large canvas down to movement in the smaller graphics context. 
+Once you can draw one square using the graphics context, you can use the `image()` function to draw scads of them.
 
-Rescaling is another very common mathematical operation in graphics. You take a value in one space and divide it by the size of the space. You now have a value between 0-1, that you can think of as the percentage of the way across the space. You then multiple this by the size of the second space and you have the location in the new space. This is pretty easy, but can get a little more complex if our spaces don't start at zero, and we need to include a translation as well. 
+Make a nested `for` loop that tiles the canvas with your squares. I am going to add another piece of complexity here. Instead of spacing the squares by `SQ_SIZE`, space them by `SQ_SIZE/2`. This will make the squares overlap and create a more complex image.
 
-These unit conversions are useful and worth remembering how to do. *However*, it is so common that p5.js includes a function to do it for us, the `map()` function (yes, this is a very different function from `array.map()`). The `map` function takes five arguments `value` (the value we are converting), `start1` (the start of the current range), `stop1` (the end of the current range), `start2` (the start of the new range), and `end2` (the end of the new range). It handles all of the scaling and translating for us.
+Now that you have lots lof lines, turn down the alpha value of the stroke.
 
-In the `draw` function, use the `map` function to convert the mouse position from the canvas (`0-width` and `0-height`) to cell dimensions (`0-CELL_SIZE*2` for both). Add these as arguments to `drawShape`. 
-
-In `drawShape`, use the new arguments to position the circle. As you move the mouse around the canvas, yuo should see the circle move around as well.
-
-### Part 5: Adding lines
-
-To get the effect shown above, instead of drawing circles, we will draw lines connecting the sides of the context to the relative mouse location. We will draw the lines with a low alpha value, which will cause color variations where they cross and come together. 
-
-Create a new variable in `drawShape` to hold the number of lines along each side. Set it to 10.
-
-Create a new variable `offset`, which is the space between the lines (which you get by dividing the width or height of the graphics context by your line count).
-
-Write a `for` loop that goes from 0 to `width` (or `height`), stepping by `offset`. Inside, draw four lines, one from each wall of the cell, with the endpoint at the relative mouse location (you can use the same loop iterator as either the `x` or the `y` of the start point). 
-
-Before the loop, be sure to set the alpha value of the stroke to something fairly low. 
-
-### Part 6: Add sliders
+### Part 5: Add sliders
 
 Add two sliders like we did in [tutorial 01](./tutorial01-color). One should control the number of lines (4 to 50, with a step of 1). The other should control the alpha (from 0 to full for whichever color mode you wish to use).
 
-### Part 7: Add keyboard interaction
+### Part 6: Add keyboard interaction
 
 Interacting with the keyboard is as easy as interacting with the mouse. There is a variable called `key` that tells us which key is pressed. However, sometimes we don't want to be reliant on the `draw` loop running and catching these event states. Instead, we want to be proactive and say "When X happens, do Y".
 
-In p5.js, we have a collection of event handling functions that work like `setup` and `draw` -- we define them and p5.js will call them at the appropriate moment. We have handlers for both keyboard and mouse events. 
+In p5.js, we have a collection of event handling functions that work like `setup` and `draw` -- we define them and p5.js will call them at the appropriate moment. We have handlers for both keyboard and mouse events.
 
 For this practical, we will add a simple handler that will save the contents of the canvas when the user types an 's'.
 
 ```javascript
-function keyTyped(){
-  if (key === 's'){
-    saveCanvas('wires', 'png');
+function keyTyped() {
+  if (key === "s") {
+    saveCanvas("wires", "png");
   }
 }
 ```
-
-
 
 ## Finishing up
 
@@ -131,21 +109,18 @@ Commit your changes to git and push them back up to GitHub. I will find them the
 
 Links to the reference pages for the functions you will be using:
 
-
-[clear](https://p5js.org/reference/#/p5/clear)  
-[createCanvas](https://p5js.org/reference/#/p5/createCanvas)  
-[createGraphics](https://p5js.org/reference/#/p5/createGraphics)  
-[createSlider](https://p5js.org/reference/#/p5/createSlider)  
-[image](https://p5js.org/reference/#/p5/image)  
-[imageMode](https://p5js.org/reference/#/p5/imageMode)  
-[line](https://p5js.org/reference/#/p5/line)  
-[map](https://p5js.org/reference/#/p5/map)  
-[mouseX](https://p5js.org/reference/#/p5/mouseX)  
-[mouseY](https://p5js.org/reference/#/p5/mouseY)  
-[noFill](https://p5js.org/reference/#/p5/noFill)  
-[key](https://p5js.org/reference/#/p5/key)  
-[keyTyped](https://p5js.org/reference/#/p5/keyTyped)  
-[saveCanvas](https://p5js.org/reference/#/p5/saveCanvas)  
-[stroke](https://p5js.org/reference/#/p5/stroke)  
-
-
+[clear](https://p5js.org/reference/p5/clear)  
+[createCanvas](https://p5js.org/reference/p5/createCanvas)  
+[createGraphics](https://p5js.org/reference/p5/createGraphics)  
+[createSlider](https://p5js.org/reference/p5/createSlider)  
+[image](https://p5js.org/reference/p5/image)  
+[imageMode](https://p5js.org/reference/p5/imageMode)  
+[line](https://p5js.org/reference/p5/line)  
+[map](https://p5js.org/reference/p5/map)  
+[mouseX](https://p5js.org/reference/p5/mouseX)  
+[mouseY](https://p5js.org/reference/p5/mouseY)  
+[noFill](https://p5js.org/reference/p5/noFill)  
+[key](https://p5js.org/reference/p5/key)  
+[keyTyped](https://p5js.org/reference/p5/keyTyped)  
+[saveCanvas](https://p5js.org/reference/p5/saveCanvas)  
+[stroke](https://p5js.org/reference/p5/stroke)

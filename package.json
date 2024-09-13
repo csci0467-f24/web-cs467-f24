@@ -9,6 +9,7 @@
     "start": "next start",
     "export": "npm run build ; next export",
     "deploy": "rsync -avh out/ basin:public_html/classes/cs467-f24",
+    "deploy:full": "npm run build ; npm run deploy",
     "lint": "next lint",
     "sitemap:build": "node src/lib/generate-sitemap.js",
     "dev:watch": "next-remote-watch .content/*/*",
