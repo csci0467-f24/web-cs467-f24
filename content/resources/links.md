@@ -7,8 +7,6 @@ published: true
 
 This is a collection of external resources that you will find useful over the course of the semester.
 
-
-
 # Technical references
 
 <dl>
@@ -22,8 +20,8 @@ This is a collection of external resources that you will find useful over the co
   <dd>An e-book introduction to JavaScript</dd>
 </dl>
 
-
 # Topical references
+
 <dl>
   <dt><a href="https://natureofcode.com/book/">The Nature of Code</a></dt>
   <dd>A book all about modeling the natural world using Processing. Note that it does not use p5.js for its examples, but it is otherwise a great resource</dd>
@@ -34,6 +32,7 @@ This is a collection of external resources that you will find useful over the co
 </dl>
 
 # Artistic references
+
 <dl>
 <dt><a href="http://formandcode.com/">Form+Code website</a></dt>
   <dd>The site has code for some of their examples. However, more interestingly, it has a bibliography and a collection of links to artists and tools.</dd>
@@ -42,6 +41,7 @@ This is a collection of external resources that you will find useful over the co
 </dl>
 
 # Inspirations
+
 <dl>
 <dt><a href="https://archive.org/details/experimentsinmotiongraphics">Experiments in Motion Graphics</a></dt>
 <dd>John Whitney's film from 1968. It is a classic in the field of computer art.</dd>
@@ -55,6 +55,7 @@ This is a collection of external resources that you will find useful over the co
 <dd>A collection of experiments and sketches. Trying to duplicate some of these would be a good challenge.</dd>
 <dt><a href="https://aiartists.org/jon-mccormack">Jon McCormack</a></dt>
 <dd></dd>
-
+<dt><a href="https://www.bridgesmathart.org/">Bridges Organization</a></dt>
+<dd>This is a conference focused on mathematical art. Many interesting papers and interesting examples.</dd>
 
 </dl>

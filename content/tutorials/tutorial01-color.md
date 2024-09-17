@@ -44,7 +44,7 @@ In `draw()`, make a `for` loop and draw a `rect` for each one of the divisions. 
 
 Use `lerpColor` to figure out the color for each `rect` based on the percentage of the distance across the canvas.
 
-Run this -- you should have a nice band that fades from red to blue.
+Run this -- you should have a nice band that fades from red to green.
 
 ### Part 3: Draw the HSB band
 
@@ -80,7 +80,7 @@ There are some ugly white lines that show up for some values of the slider. Can 
 
 A function we have not looked at yet is `createColorPicker()`. This works just like `createSlider`, except that it places a swatch of color on the page, and clicking on it opens up a color picker, allowing the user to select a new color.
 
-Comment out your `startColor` and `endColor` variables, and create two new variables: `startPicker` and `endPicker`. Use `createColorPicker()` in `setup` to initialize your pickers. The function takes a color to initialize the swatch, so pass in red and blue.
+Comment out your `startColor` and `endColor` variables, and create two new variables: `startPicker` and `endPicker`. Use `createColorPicker()` in `setup` to initialize your pickers. The function takes a color to initialize the swatch, so pass in red and green.
 
 Use the pickers' `position` function to place them under your slider.
 

@@ -14,7 +14,7 @@ published: true
 
 ## Prerequisites
 
-1. Accept the assignment on our [Github Classroom]().
+1. Accept the assignment on our [Github Classroom](https://classroom.github.com/a/hLpjK8oO).
 1. Clone the repository GitHub classroom creates to your local computer (in your shell, type `git clone` and the name of the repository)
 
 ## Task
