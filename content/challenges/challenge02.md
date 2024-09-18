@@ -16,7 +16,7 @@ published: true
 
 For your second challenge, you are going to create a tool for producing what I am going to call _Kaleido-tiles_. The tool will allow the user to draw their own tiling and produce something similar to this:
 
-![]()
+![Example of kaleidoscope tiling](../images/challenges/challenge02/kaleidotile01.png)
 
 The idea is that the user draws on the canvas. But, instead of making marks directly, the points are transformed Cartesian points in the canvas' space to Polar coordinates in the tile space (this is similar to how we transformed the mouse location in [tutorial 02](../tutorial02-repetition), but without the further conversion to Polar coordinates). once the points are in Polar coordinates, they can draw multiple times with angle offsets to spin them around the center of the tile creating a kaleidoscope effect.
 
@@ -46,7 +46,7 @@ So, in the example above, I am drawing lines. Te user clicks twice to create the
 
 - Feel free to provide the user with additional controls. For example, you could allow the user to change colors, thickness, or shape.
 
-- There are a lot of little choices that can affect the drawings. For example, in my version, there is a question of whether a single continuous line should be produced (always connect to the last point clicked) or if it should be a collection of discrete lines (after a line is drawn, clear the last point). Another choice would be about whether the user should feel like they are drawing on the canvas, with the points being scaled down to tile size, or in tile space. The advantage of drawing in tile space is that the output is generally predictable. Marks appear where you draw, and in the same place on every other tile. The downside, however, if you are making lines is that if you accidentally cross the tile boundary you can get long lines that shoot across every tile.
+- There are a lot of little choices that can affect the drawings. For example, in my version, there is a question of whether a single continuous line should be produced (always connect to the last point clicked) or if it should be a collection of discrete lines (after a line is drawn, clear the last point). Another choice would be about whether the user should feel like they are drawing on the canvas, with the points being scaled down to tile size, or in tile space. The advantage of drawing in tile space is that the output is generally predictable. Marks appear where you draw, and in the same place on every other tile. The downside, however, if you are making lines is that if you accidentally cross the tile boundary you can get long lines that shoot across every tile (or you need to write some extra code to detect edge crossings and crop at the borders, perhaps adding a wrap around as well).
 
 - My advice is to lock in your conversion from the mouse to the points on the tiles early. Work the way we did in the tutorial. Start with getting drawing working on a single tile with no kaleidoscope or Polar coordinates. Then add the Polar conversion and then convert back and make sure it still works. Then add the tiling. And then add the kaleidoscope effect. Write your code in such a way that it is easy to go back and turn things off if you need to debug.
 

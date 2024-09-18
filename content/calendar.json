@@ -25,13 +25,16 @@
         {
           "day": "mon",
           "text": [
-            "More color",
+            "[More color](./lectures/lecture03-more-color)",
             "[Color Wheel example](./sketch/2024-09-16_color-wheel)"
           ]
         },
         {
           "day": "wed",
-          "text": ["Repetition"]
+          "text": [
+            "[Repetition](./lectures/lecture04-repetition.pdf)",
+            "[Op art example](./sketch/2024-09-18_op-art)"
+          ]
         }
       ]
     },

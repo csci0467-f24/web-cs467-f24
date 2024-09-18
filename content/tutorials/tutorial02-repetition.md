@@ -39,9 +39,9 @@ Write a `drawContents()` function. This will handle drawing the contents of the 
 
 Before we draw the lines, we are going to just follow the mouse with a small circle. Create two variables called `mx` and `my`, and set them to `mouseX` and `mouseY`. Draw your circle at `(mx, my)`. You should now have a circle that follows your mouse around the canvas.
 
-We want something a little bit different, however. We want to constrain the circle to the inside of the square. What we are shooting for is _proportional_ movement of the circle. If the mouse is at the top of the square, the circle should be at the top of the square. If the mouse is at the bottom of the square, the circle should be at the bottom of the square.
+We want something a little bit different, however. When we move the mouse across the canvas, we want the mouse to move _proportionally_ across the 50x50 square. If the mouse is at the top of the canvas, the circle should be at the top of the square. If the mouse is at the bottom of the canvas, the circle should be at the bottom of the square.
 
-We are going to enlist the help of a very helpful p5js function: `map()`. This function allows us to map a value from one range to another. It takes five arguments: the value we are converting, the start of the current range, the end of the current range, the start of the new range, and the end of the new range.
+We are going to enlist the help of a very helpful p5js function: `map()`. This function allows us to map a value from one range to another. It takes five arguments: the value we are converting, the start of the current range, the end of the current range, the start of the new range, and the end of the new range. There is an optional sixth argument that is a Boolean value indicating if we want the result to be constrained to the target range. The default is `false`, but constraining it would not be a bad idea.
 
 Change the definitions of `mx` and `my` to map the mouse position to points in the square. You should now see the circle move around in constrains of the square proportionally to how you move the mouse around the canvas.
 
