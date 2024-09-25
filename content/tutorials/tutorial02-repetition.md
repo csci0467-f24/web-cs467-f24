@@ -103,7 +103,11 @@ function keyTyped() {
 
 ## Finishing up
 
-Commit your changes to git and push them back up to GitHub. I will find them there.
+When you are ready to submit,
+
+- commit your changes to your git repository (`git add` and `git commit` -- see the [guide](../resources/git) for details)
+- push your changes to GitHub (`git push`). _For 312 alums, don't worry about PRs -- a straight commit is fine_
+- submit the repository on [Gradescope](https://www.gradescope.com/courses/873354/assignments/5001984) ([submission directions](../resources/gradescope))
 
 ## References
 

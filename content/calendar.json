@@ -43,11 +43,16 @@
       "entries": [
         {
           "day": "mon",
-          "text": ["Transformation"]
+          "text": ["[Transformation](./lectures/lecture05-transformation.pdf)"]
         },
         {
           "day": "wed",
-          "text": ["Geometric transformations"]
+          "text": [
+            "[Geometric transformations](./lectures/lecture06-transformations)",
+            "[Show timing poll](https://docs.google.com/forms/d/e/1FAIpQLSeIe1cgEn8VHTH7453-yAA8Tx3yL46Aomqoxpfp_HfRE8_3YQ/viewform?usp=sf_link)",
+            "[Transformation examples](./sketch/2024-09-25_transformations)",
+            "[L-system example](./sketch/2024-09-25_lsystem)"
+          ]
         }
       ]
     },

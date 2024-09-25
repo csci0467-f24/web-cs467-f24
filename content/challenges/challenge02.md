@@ -64,7 +64,7 @@ What (if anything) did you struggle with?
 
 ### Revisions
 
-If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed.
+If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed and resubmit it.
 
 ## Submitting
 
@@ -72,5 +72,6 @@ When you are ready to submit,
 
 - commit your changes to your git repository (`git add` and `git commit` -- see the [guide](../resources/git) for details)
 - push your changes to GitHub (`git push`). _For 312 alums, don't worry about PRs -- a straight commit is fine_
+- submit the repository on [Gradescope](https://www.gradescope.com/courses/873354/assignments/5002079) ([submission directions](../resources/gradescope))
 
 _Important: it is tempting to treat all of our deadlines as "loose" -- this is a dangerous path! Get **something** done by the deadline and submit. You can always go back to it, and you will get the benefit of my feedback. Just make sure that your reflection acknowledges that it isn't complete._
