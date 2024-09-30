@@ -26,14 +26,14 @@
           "day": "mon",
           "text": [
             "[More color](./lectures/lecture03-more-color)",
-            "[Color Wheel example](./sketch/2024-09-16_color-wheel)"
+            "**mini-challenge** [Color Wheel](./sketch/2024-09-16_color-wheel)"
           ]
         },
         {
           "day": "wed",
           "text": [
             "[Repetition](./lectures/lecture04-repetition.pdf)",
-            "[Op art example](./sketch/2024-09-18_op-art)"
+            "**mini-challenge** [Op art](./sketch/2024-09-18_op-art)"
           ]
         }
       ]
@@ -50,8 +50,8 @@
           "text": [
             "[Geometric transformations](./lectures/lecture06-transformations)",
             "[Show timing poll](https://docs.google.com/forms/d/e/1FAIpQLSeIe1cgEn8VHTH7453-yAA8Tx3yL46Aomqoxpfp_HfRE8_3YQ/viewform?usp=sf_link)",
-            "[Transformation examples](./sketch/2024-09-25_transformations)",
-            "[L-system example](./sketch/2024-09-25_lsystem)"
+            "**exmaple** [Transformations](./sketch/2024-09-25_transformations)",
+            "**example** [L-systems](./sketch/2024-09-25_lsystem)"
           ]
         }
       ]
@@ -61,11 +61,17 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": [
+            "[Curves](./lectures/lecture07-curves)",
+            "**example** [arc based color wheel](./sketch/2024-09-30_color-wheel-2)",
+            "**example** [bezier() and curve()](./sketch/2024-09-30_curves)",
+            "**example** [bezierVertex() and curveVertex()](./sketch/2024-09-30_curves-2)",
+            "**mini-challenge** [flower](./sketch/2024-09-30_bezier-flower)"
+          ]
         },
         {
           "day": "wed",
-          "text": []
+          "text": ["Randomness"]
         }
       ]
     },
@@ -74,11 +80,11 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Random distribution"]
         },
         {
           "day": "wed",
-          "text": []
+          "text": ["Noise"]
         }
       ]
     },
