@@ -1,8 +1,36 @@
 ---
 title: "Reflection"
 date: "2024-09-11"
-due: ["2024-09-13T23:59", "2024-09-20T23:59", "2024-09-27T23:59"]
-deliverables: ["Reflection 01", "Reflection 02", "Reflection 03"]
+due:
+  [
+    "2024-09-13T23:59",
+    "2024-09-20T23:59",
+    "2024-09-27T23:59",
+    "2024-10-04T23:59",
+    "2024-10-10T23:59",
+    "2024-10-18T23:59",
+    "2024-10-25T23:59",
+    "2024-11-01T23:59",
+    "2024-11-08T23:59",
+    "2024-11-15T23:59",
+    "2024-11-22T23:59",
+    "2024-12-06T23:59",
+  ]
+deliverables:
+  [
+    "Reflection 01",
+    "Reflection 02",
+    "Reflection 03",
+    "Reflection 04",
+    "Reflection 05",
+    "Reflection 06",
+    "Reflection 07",
+    "Reflection 08",
+    "Reflection 09",
+    "Reflection 10",
+    "Reflection 11",
+    "Reflection 13",
+  ]
 name: "Reflection"
 published: true
 ---
@@ -25,8 +53,9 @@ Each reflection should answer the following questions (you will have a form to f
 
 [Week 03 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36152)
 
-<!-- [Week 04 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36157
-[Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)
+[Week 04 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36157)
+
+<!-- [Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)
 
 
 

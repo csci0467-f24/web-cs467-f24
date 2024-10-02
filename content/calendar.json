@@ -71,7 +71,14 @@
         },
         {
           "day": "wed",
-          "text": ["Randomness"]
+          "text": [
+            "[Randomness](./lectures/lecture08-random)",
+            "**mini-challenge** [Color flurry](./sketch/2024-10-02_color-flurry)",
+            "**example** [Complexity](./sketch/2024-10-02_complexity)",
+            "**example** [Random maze](./sketch/2024-10-02_random-maze)",
+            "**example** [Random tiles](./sketch/2024-10-02_random-tiles)",
+            "**example** [Random distribution](./sketch/2024-10-02_random-distribution)"
+          ]
         }
       ]
     },
@@ -80,7 +87,7 @@
       "entries": [
         {
           "day": "mon",
-          "text": ["Random distribution"]
+          "text": []
         },
         {
           "day": "wed",
@@ -93,7 +100,7 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Particle systems"]
         },
         {
           "day": "wed",
@@ -106,7 +113,7 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Audio-reactive"]
         },
         {
           "day": "wed",
