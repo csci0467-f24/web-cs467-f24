@@ -34,21 +34,6 @@ export function findAssignments(files) {
         );
 
         tmp.push({ ...entry, name, assignedDate, dueDate });
-
-        // if (entry.deliverables) {
-        //   tmp.push({
-        //     ...entry,
-        //     name: entry.deliverables[index],
-        //     dueDate: dueDate,
-        //     assignedDate: parseISO(entry.date),
-        //   });
-        // } else {
-        //   tmp.push({
-        //     ...entry,
-        //     dueDate: dueDate,
-        //     assignedDate: parseISO(entry.date),
-        //   });
-        // }
       });
     } else if (entry.type === "directory") {
       tmp.push(...findAssignments(entry.children));
