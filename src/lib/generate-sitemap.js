@@ -11,7 +11,11 @@ const sitemapLocation = path.join(process.cwd(), "content", "sitemap.json");
 function getMetadata(filePath) {
   const fileContents = fs.readFileSync(filePath, "utf8");
   // Use gray-matter to parse the post metadata section
-  return matter(fileContents).data;
+  const metadata = matter(fileContents).data;
+  if (metadata.dates && !metadata.date) {
+    metadata.date = metadata.dates[0];
+  }
+  return metadata;
 }
 
 function getOrderedPageList(directory) {

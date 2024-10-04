@@ -28,9 +28,7 @@ export function findAssignments(files) {
             ? entry.deliverables[index]
             : entry.name;
         const assignedDate = parseISO(
-          Array.isArray(entry.date) && entry.date[index]
-            ? entry.date[index]
-            : entry.date,
+          entry.dates && entry.date[index] ? entry.dates[index] : entry.date,
         );
 
         tmp.push({ ...entry, name, assignedDate, dueDate });
