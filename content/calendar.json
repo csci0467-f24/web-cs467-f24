@@ -91,7 +91,16 @@
         },
         {
           "day": "wed",
-          "text": ["Noise"]
+          "text": [
+            "[Noise](./lectures/lecture10-noise)",
+            "**example** [1D noise](./sketch/2024-10-09_noise-1D)",
+            "**example** [Noisy circle](./sketch/2024-10-09_noise-circle)",
+            "**example** [Fabric](./sketch/2024-10-09_noise-fabric)",
+            "**example** [Terrain](./sketch/2024-10-09_noise-terrain)",
+            "**example** [2D noise](./sketch/2024-10-09_noise-2D)",
+            "**example** [Clouds](./sketch/2024-10-09_noise-clouds)",
+            "**example** [Lava](./sketch/2024-10-09_noise-lava)"
+          ]
         }
       ]
     },
