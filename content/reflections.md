@@ -69,11 +69,9 @@ Each reflection should answer the following questions (you will have a form to f
 
 [Week 04 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36157)
 
-<!-- [Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)
+[Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)
 
-
-
-[Week 07 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28830)
+<!--[Week 07 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28830)
 [Week 08 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28859)
 [Week 09 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28882)
 [Week 10 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28913)
