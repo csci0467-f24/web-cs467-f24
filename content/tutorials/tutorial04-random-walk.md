@@ -142,13 +142,13 @@ When you are ready to submit,
 
 Links to the reference pages for the functions you will be using:
 
-[background](https://p5js.org/reference/#/p5/background)  
-[colorMode](https://p5js.org/reference/#/p5/colorMode)  
-[createCanvas](https://p5js.org/reference/#/p5/createCanvas)  
-[createVector](https://p5js.org/reference/#/p5/createVector)  
-[filter](https://p5js.org/reference/#/p5/filter)  
-[line](https://p5js.org/reference/#/p5/line)  
-[random](https://p5js.org/reference/#/p5/random)  
-[stroke](https://p5js.org/reference/#/p5/stroke)  
-[strokeWeight](https://p5js.org/reference/#/p5/strokeWeight)  
-[p5.Vector](https://p5js.org/reference/#/p5.Vector)
+[background](https://p5js.org/reference/p5/background)  
+[colorMode](https://p5js.org/reference/p5/colorMode)  
+[createCanvas](https://p5js.org/reference/p5/createCanvas)  
+[createVector](https://p5js.org/reference/p5/createVector)  
+[filter](https://p5js.org/reference/p5/filter)  
+[line](https://p5js.org/reference/p5/line)  
+[random](https://p5js.org/reference/p5/random)  
+[stroke](https://p5js.org/reference/p5/stroke)  
+[strokeWeight](https://p5js.org/reference/p5/strokeWeight)  
+[p5.Vector](https://p5js.org/reference/p5.Vector)

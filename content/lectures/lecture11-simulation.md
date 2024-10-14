@@ -1,77 +1,69 @@
 ---
 title: "CS 467 - Lecture 11"
-date: "2023-03-28"
+date: "2024-10-14"
 name: "Lecture 11"
-published: false
+published: true
 ---
 
-Before break I said that we used tools like noise to help out when physical simulation of very complex systems was beyond us
-	that is not to say we can't do some physical simulation
-	
-Start with the simple ball example
-Many of you have already done some simple physics simulation
-	We saw the example of the bouncing ball before break
-	This is an idealized system
-Constant velocity and perfect elasticity for the bounces
+Before break I said that we used tools like noise to help out when physical simulation of very complex systems was beyond us... but that is not to say we can't do some physical simulation
 
+## Simple ball
+
+A simple bouncing ball is a simplistic physics system. It has constant velocity and perfect elasticity for the bounces
 
 ```javascript
-
 class Ball {
   constructor(x, y, radius, color) {
     this.radius = radius;
     this.color = color;
     this.position = createVector(x, y);
-    this.velocity = createVector(3,4);
+    this.velocity = createVector(0, 0);
   }
 
-  update(){
-    this.position.add(this.velocity);
-    if (this.position.x - this.radius< 0 || this.position.x + this.radius >= width){
-      this.velocity.x  *= -1;
-    }
-    if (this.position.y - this.radius < 0 || this.position.y + this.radius >= height){
-      this.velocity.y  *= -1;
-    }
-  }
-
-
-  draw(){
+  draw() {
     fill(this.color);
-    circle(this.position.x, this.position.y, this.radius*2);
+    circle(this.position.x, this.position.y, this.radius * 2);
+  }
+
+  update() {
+    this.position.add(this.velocity);
+    if (
+      this.position.x + this.radius > width ||
+      this.position.x - this.radius < 0
+    ) {
+      this.velocity.x *= -1;
+      this.position.x = constrain(
+        this.position.x,
+        this.radius,
+        width - this.radius,
+      );
+    }
+    if (
+      this.position.y + this.radius > height ||
+      this.position.y - this.radius < 0
+    ) {
+      this.velocity.y *= -1;
+      this.position.y = constrain(
+        this.position.y,
+        this.radius,
+        height - this.radius,
+      );
+    }
   }
 }
-
 ```
 
 In previous animation, we have combined the drawing and the updates. Now we really want to separate them
 
-
 # Acceleration
 
 Time to revisit early physics class (or learn some basic physics)
-	**Velocity** - a vector providing the change in position over time
-	**Acceleration** - a vector providing the change in velocity over time
 
-### Rocket ship
-let's look at a simple example
-this is the basic setup for what is arguably the very first computer game : Space war
-
-We have a simple rocket and we can apply thrust -- in this case acceleration
-We can give it a tap of acceleration, and the velocity increases… and then stays constant
-		
-Look at the update
-	We add the acceleration to the velocity
-	We add the velocity to the position
-	We zero out the acceleration
-		We do this just to keep from read adding the acceleration to the system
-(and to save remaking the vector)
-
-[Rocket ship simulation in action](../sketch/2023-03-28-rocket)
-
-
+- **Velocity** - a vector providing the change in position over time
+- **Acceleration** - a vector providing the change in velocity over time
 
 ## Ball with gravity
+
 Let us now add gravity to our ball (v2)
 
 ```javascript
@@ -86,291 +78,203 @@ update(){
 	this.velocity.add(this.acceleration); // <--
 	this.position.add(this.velocity);
 	…
-			
+
 ```
-
-_In the full code, we also updated the `update()` function to keep the ball on the screen_
-
 
 Wait -- isn't gravity 9.8 m/s? why 1?
-	What is a meter?
-	We are the creators of this little world -- units and universal constants are up to us
-	
+
+- What is a meter?
+- We are the creators of this little world -- units and universal constants are up to us
+
 If we make the bounce a little bit less than perfectly elastic, we will get the behavior we would expect when letting a ball drop
-	(i.e., make the flipped velocities less that 1)
+(i.e., make the flipped velocities less that 1)
 
 ```javascript
-if (this.position.x < 0 || this.position.x >= width){
-  this.position.x  *= -.9;
+if (this.position.x < 0 || this.position.x >= width) {
+  this.position.x *= -0.9;
 }
-if (this.position.y < 0 || this.position.y >= height){
-  this.position.y  *= -.9;
+if (this.position.y < 0 || this.position.y >= height) {
+  this.position.y *= -0.9;
 }
 ```
 
-
-### Forces
+## Forces
 
 Of course, if you recall your physics class, what we are really talking about is applying a force to the object
 
 If you recall your physics: $F = ma$
-	So the mass gets involved…
-	Our objects don't have any mass
-		Again, we can make it up -- let's make the mass proportional to the radius
-		
+
+So now we need mass. But our objects don't have any mass... Again, we can make it up -- let's make the mass proportional to the radius (big things have more mass)
+
+```javascript
+this.mass = radius / 10;
+```
+
 So, given a force and a mass, we can calculate the acceleration: $a = F/m$
 
 Of course in a proper complex system there will be many forces acting upon an object
 
 So we need to think about the accumulation of all of the forces
 
-We will write an `applyForce()` function that accumulates all of the forces
+We will write an `applyForce()` function that accumulates all of the forces into `acceleration` before we update
 
 ```javascript
-
-applyForce(force){
-    this.force.add(force);
+applyForce(f){
+	this.acceleration.add(p5.Vector.div(f, this.mass));
 }
-  
 ```
 
-The assumption here is that `force` is a vector
+The assumption here is that `force` is a vector. Note that we are using `p5.Vector.div` which will return a new vector instead of altering the force vector.
 
-
-We then need to change our `update` function
-We calculate the acceleration based on the forces and then we clear the current forces
+We then need to change our `update` function to clear the acceleration.
 
 ```javascript
-
-const acceleration = p5.Vector.div(this.force, this.mass);
-this.force.x = 0;
-this.force.y = 0;
-this.velocity.add(acceleration);
+this.velocity.add(this.acceleration);
+this.acceleration.mult(0);
 this.position.add(this.velocity);
 ```
 
+### Gravity (take two)
 
-We can apply a new force in the `update()` function
-
+Now, instead of the acceleration being baked into the ball, we can apply gravity in the `draw()` function
 
 ```javascript
+// add gravity
+const g = createVector(0, 1);
+ball.applyForce(g);
 
-ball.draw();
-ball.applyForce(createVector(0,2));
 ball.update();
-  
+ball.draw();
 ```
 
+### Wind
 
+Now that we have an easy way to add new forces, we can add something like wind to the system.
 
-Here is the [fully developed ball](../sketch/2023-03-28-ball)
-
-
-
-## Building a system
-
-We aren't going to build a complete physics system, there are a number of them out there like matter.js, Box2d, etc..., but we will make the first few steps in that direction
-
-
-We will build a `System` class and we will be able to add objects and forces to it
+To make it more obvious, we will only blow the wind when the mouse is down.
 
 ```javascript
+// add wind
+if (mouseIsPressed) {
+  const wind = createVector(0.2, 0);
+  ball.applyForce(wind);
+}
+```
 
-class System{
-  objects = [];
-  forces = [];
+We can make this better by changing the wind direction based the mouse position. At the same time we will increase the wind power so it can overcome gravity.
 
-  addObject(obj){
-    this.objects.push(obj);
-  }
+```javascript
+// add wind
+if (mouseIsPressed) {
+  const wind = createVector(width / 2 - mouseX, height / 2 - mouseY);
+  wind.normalize();
+  wind.mult(1.1);
+  ball.applyForce(wind);
+}
+```
 
-  addForce(force){
-    this.forces.push(force);
-  }
+# Adding more balls
 
-  update(){
-    for (let force of this.forces){
-      for (let obj of this.objects){
-        obj.applyForce(force);
-      }
-    }
+Our setup makes it pretty straightforward to add more items.
 
-    for (let obj of this.objects){
-        obj.update();
-      }
+Create an array
 
-  }
+```javascript
+const balls = [];
+```
 
-  draw(){
-    for (let obj of this.objects){
-      obj.draw();
-    }
-  }
+In `setup`, add balls to the array
+
+```javascript
+balls.push(new Ball(150, 0, 20, color(255, 0, 100)));
+balls.push(new Ball(450, 0, 40, color(100, 0, 255)));
+```
+
+Update `draw()` to use the array
+
+```javascript
+// add gravity
+const g = createVector(0, 1);
+balls.forEach((ball) => ball.applyForce(g));
+
+// add wind
+if (mouseIsPressed) {
+  const wind = createVector(width / 2 - mouseX, height / 2 - mouseY);
+  wind.normalize();
+  wind.mult(1.1);
+  balls.forEach((ball) => ball.applyForce(wind));
 }
 
+balls.forEach((ball) => ball.update());
+balls.forEach((ball) => ball.draw());
 ```
 
+Why did I write this with four different loops instead of making one larger loop that did all of the steps to each ball?
 
-We can then configure the system in the `setup()`
+There are two main reasons. When applying the forces, I only want to create each force once, and I don't want to separate where I create the force from where it is created for readability and code management reasons.
+
+The second reason is looking ahead to a time when the objects might interact. In that instance it will be very important to separate this into three distinct processes:
+
+- accumulation of forces
+- position updates
+- drawing
+
+## Gravity take 3
+
+In doing this, we may notice that the balls fell at different rates... and that is not what we think should happen if we remember our physics. What is the problem?
+
+The problem is our overly simplistic model of gravity. The attraction force is proportional to the mass, so larger objects have a larger force applied to them.
+
+Rather than putting in the actual formula, we will just adjust our simplistic model to give us the result we want, which is equal acceleration. Since we are dividing the force by the mass to get the acceleration, we can just multiply gravity's strength by the object's mass to get the force.
 
 ```javascript
-
-system = new System();
-let ball = new Ball(100, 100, 25, "red");
-
-system.addObject(ball);
-
-system.addForce(createVector(0,2))
+// add gravity
+const g = createVector(0, 1);
+balls.forEach((ball) => ball.applyForce(p5.Vector.mult(g, ball.mass)));
 ```
 
-Now it is pretty easy to add new balls in 
+## Drag
 
-```javascript
-
-ball = new Ball(100, 100, 10, "blue");
-system.addObject(ball);
-
-```
-
-
-
-### gravity
-
-Conceptually, our force is modeling gravity, but there is a problem
-
-the balls all now fall at different rates
-	why?
-
-is it what we want?
-		well, no. Gravity is effected by the mass of the objects involved
-		
-on Earth, we get roughly constant acceleration
-
-To get this effect, we need to make the force applied proportional to the mass, so when the mass is divided out, everything will have the same acceleration. 
-
-This requires a slightly more complex force model
-
-There are _many_ ways to do this. This is just one approach
-
-We will create force object with an `applyTo` method, and the method will apply itself to the object. 
-
-```javascript
-
-  let force = {
-    base: createVector(0,2),
-    applyTo(obj){
-      obj.applyForce(this.base);
-    }
-  }
-
-  system.addForce(force);
-  
-```
-
-
-and we need to switch around `update` a little
-
-```javascript
-
-for (let force of this.forces){
-  for (let obj of this.objects){
-	force.applyTo(obj);
-  }
-}
-    
-```
-
-
-This hasn't really given us anything new yet, but now we can create more complex forces
-
-```javascript
-
-let gravity = {
-    base: createVector(0,1),
-    applyTo(obj){
-      obj.applyForce(p5.Vector.mult(this.base, obj.mass));
-    }
-  }
-
-  system.addForce(gravity);
-  
-```
-
-
-Now our two balls fall at the same rate
-
-
-
-### wind
-
-Let's add a wind force
-
-We will set the wind to only blow when the mouse is clicked and we will have it blow towards the center of the canvas
-
-We will start by adding in a new force with no power behind it
-
-```javascript
-
-  wind = {
-    base: createVector(0,0),
-    applyTo(obj){
-      obj.applyForce(this.base);
-    }
-  }
-
-  system.addForce(wind);
-  
-```
-
-In the `draw` function, we will update the wind based on the mouse state
-
-```javascript
-
-   if (mouseIsPressed){
-    wind.base.x = width/2 - mouseX;
-    wind.base.y =  height/2 - mouseY;
-    wind.base.normalize();
-    wind.base.mult(30);
-    console.log(wind.base)
-  }else{
-    wind.base.mult(0);
-  }
-  
-```
-
-
-### drag
+Let's add
 
 We can also model _drag_, which could be from fluid or air
 
-The drag equation is $F_D = \frac{1}{2} \rho v^{2}C_DA$
+The drag equation is $F_D = -\frac{1}{2} \rho v^{2}C_DA\hat{v}$
+
 - $\rho$ (rho) - the density of the fluid
 - $v$ - the speed of the object in the fluid
 - $C_D$ - the drag coefficient
 - $A$ - the cross section of the area
+- $\hat{v}$ - the direction of travel
 
-We could get formal, but we are just approximating here. We can ignore $\rho$, set the area to 1, and just deal with the velocity and the drag coefficient
+Of course, we are just making approximations here, so we can simplify this down to
+$$F_{D} = -\hat{v}||v||^{2}C_{D}$$Basically, a force that pushes back in the direction of travel that is proportional to the current velocity.
 
 ```javascript
+// add drag
+balls.forEach((ball) => {
+  if (ball.position.y + ball.radius > waterline) {
+    const drag = ball.velocity.copy().normalize();
+    drag.mult(-ball.velocity.magSq());
+    drag.mult(dragCoefficient);
 
- const drag = {
-    dragCoefficient: .5,
-    applyTo(obj){
-      // don't do anything if it isn't in the water
-      if (obj.radius+obj.position.y > waterLine){
-        const v = obj.velocity.copy().normalize();
-        v.mult(-this.dragCoefficient * obj.velocity.magSq());
-        obj.applyForce(v);
-      }
-
-    }
+    ball.applyForce(drag);
   }
-
-  system.addForce(drag);
-  
+});
 ```
 
+## Attraction
 
-Here is our [simulation system](../sketch/2023-03-28-system), with all of the bells and whistles. 
+Our force of gravity is still pretty primitive and there are situations where we want to model attraction directly. Gravity is really two objects exerting forces on each other. When a ball is pulled towards the Earth, the Earth is also very slightly pulled towards the ball. The force of the attraction is the same for both, but different masses will change the effect.
 
+For gravity, we can wave our hands, but for bodies that are similar in size, we need to consider this
 
+![Attraction diagram](./lecture11/attraction.png)
+
+The formula is
+$$ F = \frac{Gm_1m_2}{||r||^2} \hat{r}$$
+The big picture here is that the force depends on the distance between the objects and it falls off following the inverse square law
+
+$G$ is the gravitational constant, which is approximately $6.674 \times 10^{-11}$, but we can make it any number that works for us.
+
+Here is our [simulation system](../sketch/2024-10-14-physics), with all of the bells and whistles.

@@ -77,9 +77,9 @@ Recall that the smaller the step we make in noise space, the more coherent the v
 
 The first step of `update` is to read the noise value for the current location. Pass in the x and y components of the position, scaling them both with `noiseScale`.
 
-Then, use the [`map`](https://p5js.org/reference/#/p5/map) function to convert it from the range $[0,1)$ to $[0 - 2π]$. This will be the new heading for the ant.
+Then, use the [`map`](https://p5js.org/reference/p5/map) function to convert it from the range $[0,1)$ to $[0 - 2π]$. This will be the new heading for the ant.
 
-One of the nice methods in `p5.Vector` is [`fromAngle`](https://p5js.org/reference/#/p5.Vector/fromAngle), which allows you to create a new unit vector from an angle. Note that it takes a second optional argument that will set the length. You can use this to increase the distance the ant travels in a particular time step (try 2 to start with).
+One of the nice methods in `p5.Vector` is [`fromAngle`](https://p5js.org/reference/p5.Vector/fromAngle), which allows you to create a new unit vector from an angle. Note that it takes a second optional argument that will set the length. You can use this to increase the distance the ant travels in a particular time step (try 2 to start with).
 
 To get the ant's new location, we can add this direction vector to it's current location.
 
@@ -145,15 +145,15 @@ When you are ready to submit,
 
 Links to the reference pages for the functions you will be using:
 
-[background](https://p5js.org/reference/#/p5/background)  
-[beginShape](https://p5js.org/reference/#/p5/beginShape)  
-[createCanvas](https://p5js.org/reference/#/p5/createCanvas)  
-[createVector](https://p5js.org/reference/#/p5/createVector)  
-[endShape](https://p5js.org/reference/#/p5/endShape)  
-[fromAngle](https://p5js.org/reference/#/p5.Vector/fromAngle)  
-[map](https://p5js.org/reference/#/p5/map)  
-[noise](https://p5js.org/reference/#/p5/noise)  
-[random](https://p5js.org/reference/#/p5/random)  
-[stroke](https://p5js.org/reference/#/p5/stroke)  
-[p5.Vector](https://p5js.org/reference/#/p5.Vector)  
-[vertex](https://p5js.org/reference/#/p5/vertex)
+[background](https://p5js.org/reference/p5/background)  
+[beginShape](https://p5js.org/reference/p5/beginShape)  
+[createCanvas](https://p5js.org/reference/p5/createCanvas)  
+[createVector](https://p5js.org/reference/p5/createVector)  
+[endShape](https://p5js.org/reference/p5/endShape)  
+[fromAngle](https://p5js.org/reference/p5.Vector/fromAngle)  
+[map](https://p5js.org/reference/p5/map)  
+[noise](https://p5js.org/reference/p5/noise)  
+[random](https://p5js.org/reference/p5/random)  
+[stroke](https://p5js.org/reference/p5/stroke)  
+[p5.Vector](https://p5js.org/reference/p5.Vector)  
+[vertex](https://p5js.org/reference/p5/vertex)

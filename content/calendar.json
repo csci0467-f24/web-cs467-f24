@@ -109,7 +109,10 @@
       "entries": [
         {
           "day": "mon",
-          "text": ["Particle systems"]
+          "text": [
+            "[Physics simulation](./lectures/lecture11-simulation)",
+            "**example** [Bouncing balls](./sketch/2024-10-14_physics)"
+          ]
         },
         {
           "day": "wed",
