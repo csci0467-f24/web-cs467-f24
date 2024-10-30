@@ -1,15 +1,22 @@
 import { getSketchPaths, getSketchSrc } from "../../lib/sketch-utils";
-import useMarkdownProcessor from "../../hooks/useMarkdownProcessor";
 
-export default function Sketch({ path, src }) {
-  const reactContent = useMarkdownProcessor("```javascript\n" + src + "\n```");
+import SourceCode from "../../components/SourceCode";
+
+export default function Sketch({ path, sources }) {
+  const srcBlocks = sources.map((src) => {
+    return (
+      <div key={src.name}>
+        <SourceCode src={src} />
+      </div>
+    );
+  });
 
   return (
     <div>
       <iframe src={path} style={{ width: "100%", height: "700px" }}></iframe>
       <hr />
-      <h3>Source</h3>
-      {reactContent}
+      <h2>Source</h2>
+      {srcBlocks}
     </div>
   );
 }
@@ -35,8 +42,8 @@ export async function getStaticProps({ params }) {
   const sketchName = params.slug;
   const path = `../sketches/${sketchName}/index.html`;
 
-  const src = getSketchSrc(sketchName);
+  const sources = getSketchSrc(sketchName);
   return {
-    props: { path, src },
+    props: { path, sources },
   };
 }

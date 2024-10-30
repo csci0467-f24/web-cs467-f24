@@ -13,11 +13,36 @@ export function getSketchPaths() {
 }
 
 export function getSketchSrc(sketchName) {
-  const filePath = path.join(sketchDirectory, sketchName, "sketch.js");
-  let contents = "";
-  if (fs.existsSync(filePath)) {
-    contents = fs.readFileSync(filePath, "utf8");
+  const sourceFiles = [];
+  const filePath = path.join(sketchDirectory, sketchName);
+
+  // get javascript files (assumed to be at the top level)
+  const jsFiles = fs
+    .readdirSync(filePath)
+    .filter((file) => file.endsWith(".js"));
+
+  jsFiles.forEach((file) => {
+    const contents = fs.readFileSync(path.join(filePath, file), "utf8");
+    const src = { name: "sketch.js", type: "javascript", contents: contents };
+    sourceFiles.push(src);
+  });
+
+  // get shader files
+  const shadersFilepath = path.join(filePath, "shaders");
+  if (fs.existsSync(shadersFilepath)) {
+    const shaderFiles = fs
+      .readdirSync(shadersFilepath)
+      .filter((file) => file.endsWith(".frag") || file.endsWith(".vert"));
+
+    shaderFiles.forEach((file) => {
+      const contents = fs.readFileSync(
+        path.join(shadersFilepath, file),
+        "utf8",
+      );
+      const src = { name: file, type: "glsl", contents: contents };
+      sourceFiles.push(src);
+    });
   }
 
-  return contents;
+  return sourceFiles;
 }
