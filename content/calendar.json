@@ -125,11 +125,18 @@
       "entries": [
         {
           "day": "mon",
-          "text": ["Audio-reactive"]
+          "text": [
+            "[Audio-reactive](./lectures/lecture13-audio)",
+            "**example** [Audio detection methods](./sketch/2024-10-21_audio-reactive-meters)",
+            "**Assigned** [Mid-semester check-in](https://docs.google.com/forms/d/e/1FAIpQLSdC6meUCsWZBHdS90yIJh9eO9dUMUz-Co0wP6tdAvOsMDtxgw/viewform?usp=sf_link)"
+          ]
         },
         {
           "day": "wed",
-          "text": []
+          "text": [
+            "[Cellular automata](./lectures/lecture14-automata)",
+            "**Due** [Mid-semester check-in](https://docs.google.com/forms/d/e/1FAIpQLSdC6meUCsWZBHdS90yIJh9eO9dUMUz-Co0wP6tdAvOsMDtxgw/viewform?usp=sf_link)"
+          ]
         }
       ]
     },
@@ -138,11 +145,15 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Project critiques"]
         },
         {
           "day": "wed",
-          "text": []
+          "text": [
+            "[Shaders](./lectures/lecture15-shaders)",
+            "**example** [Basic shaders](./sketch/2024-10-30_glsl-simple)",
+            "**example** [Mandelbrot set](./sketch/2024-10-30_glsl-mandelbrot)"
+          ]
         }
       ]
     },
@@ -151,11 +162,21 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": [
+            "Reaction Diffusion",
+            "**example** [basic reaction-diffusion](https://github.com/csci0467-f24/reaction-diffusion-example)",
+            "**example** [Rd recolored](./sketch/2024-11-04_rd-bw)",
+            "**example** [Rd w/ text](./sketch/2024-11-04_rd-text)",
+            "**example** [Rd in 3D](./sketch/2024-11-04_rd-3D)",
+            "**example** [Rd kaleidoscope](./sketch/2024-11-04_rd-kaleidoscope)"
+          ]
         },
         {
           "day": "wed",
-          "text": []
+          "text": [
+            "Autonomous agents",
+            "**example** [swarming](https://github.com/csci0467-f24/2024-11-06_swarming)"
+          ]
         }
       ]
     },
@@ -164,11 +185,14 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Project critiques"]
         },
         {
           "day": "wed",
-          "text": []
+          "text": [
+            "Parameterization",
+            "**example** [parametric flower](./sketch/2024-11-13_parameters)"
+          ]
         }
       ]
     },
@@ -177,11 +201,11 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Genetic Algorithms"]
         },
         {
           "day": "wed",
-          "text": []
+          "text": ["AI Art"]
         }
       ]
     },
@@ -194,11 +218,11 @@
       "entries": [
         {
           "day": "mon",
-          "text": []
+          "text": ["Project critiques"]
         },
         {
           "day": "wed",
-          "text": []
+          "text": ["Computational Creativity"]
         }
       ]
     },
@@ -207,7 +231,11 @@
       "entries": [
         {
           "day": "mon",
-          "text": ["**Last Day of class**"]
+          "text": ["**Last Day of classes** (Friday schedule)"]
+        },
+        {
+          "day": "Tue",
+          "text": ["**Art Show** 3:00p - 4:30p"]
         }
       ]
     }

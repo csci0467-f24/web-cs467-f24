@@ -1,70 +1,52 @@
 ---
-title: "CS 467 - Project Two: Hidden Forces"
-date: "2023-03-30"
-due: "2023-04-11T14:15"
+title: "CS 467 - Project Two: Sound"
+date: "2024-10-21"
+due: ["2024-10-28T14:15", "2024-10-30T14:15"]
+deliverables: ["Project 02 draft", "Project 02"]
 name: "Project 02"
-published: false
+published: true
 ---
-
 
 ## Objective
 
-For your second project, I would like you to represent the trails left by the hidden forces of the world.  
+For your second project, I would like you to make an audio reactive piece that shows off some of the techniques that you have learned.
 
-The inspiration for this project is the picture below. After a fresh snowfall one morning, I was caught by this wonderful pattern in the snow. It took me a moment to realize that I was seeing a visualization of sorts of the wind blowing the leaf around on top of the snow. 
-
-![Tracks in the snow](./project02/inspiration.jpg)
-
-This is what I want you to make -- a piece that we can interpret as the imprint of your physical system on its environment. It could be fairly literal, like the imprints of the elements of the system in the snow or traces left behind, or it could be more conceptual, like using the attributes of elements of the system (position, velocity, etc) as inputs to a new system, or visualizing the interconnections of the system. It is not required that the viewer be able to tell what the underlying system is doing. However, when viewing the underlying system there should be a moment of "oh, *that's* what is going on". 
-
-
-The core of this assignment will be to create a physical simulation based on the system we created in class (or at least one in the same vein). The twist is that I would like to see two different views of the system. The first view should be a literal representation of what is being simulated. 
-
-The second should hide all of the elements of the physical system and just show us the "foot prints". 
-
-
-Requirements:
-- The underlying system should be based on a collection of entities simulating some physical process.
-- The literal view should provide a clear view of the mechanics of the system. It should be fairly obvious which forces are at work in the system and how the universe works. 
-- The conceptual view should be linked to the underlying physical simulation (though as stated above, the nature of that linkage does not need to be obvious from only viewing the conceptual view). The conceptual view can be dynamic or static (e.g., you could run the simulation out a couple of steps, to produce a static pattern like the leaf, or you could let patterns continue to evolve over time). 
-- If the system is dynamic, it is okay for it to eventually become unaesthetic (imaging the leaf rolling over this snow repeatedly until everything was just churned up), **provided** you provide a mechanism (such as a key press) that allows the user to clear the view and start over.
-- When the user types 'v', the view should switch between literal and conceptual views. If the conceptual view is static, switching to the literal view should restart the system.
-
-
+\__Note: The critique session for the first project was very successful and a number of you said that they wished they had pieces that were ready for peer critique. So for this project, we have an earlier draft deadline to prepare for the session and I will expect everyone to participate._
 
 ## Getting Started
 
-
-1. Click the GitHub classroom [link](https://classroom.github.com/a/HcQJUEog)
+1. Click the GitHub classroom [link](https://classroom.github.com/a/72rdmxjV)
 1. Clone the repository GitHub classroom creates to your local computer (in your shell, type `git clone` and the name of the repository)
 
 ## Details
 
-The starting place should be the rudimentary physics engine that I developed for you in class. However you are encouraged to incorporate other physical forces that we didn't talk about (e.g., springs collisions, etc...). You are also welcome to incorporate a more complete physics engine such as [Matter.js](https://brm.io/matter-js/) (though I will warn you that if you haven't done much more JavaScript than we have done in class, then this could be a bit challenging)
+The content of the piece is up to you, but it must be centered on some sound. The sound can be anything you like. It could be a piece of music, it could be you reading beat poetry, it could be a field recording, or it could just be the sound of you dropping ping-pong balls down the stairs (as an aside -- modern cell phones make fine recording devices). It should also be obvious that the visual is _reacting_ to the sound (as opposed to just scripting animations to match the timeline of the sound).
 
+In addition, I would like you to incorporate _at least_ **two** of the following techniques that you have learned recently:
 
-## Reflection
+- noise
+- particles
+- feedback
 
-I would like you to write a brief reflection in the README file. 
+## Documentation and Reflection
 
-The second section is where I would like you to answer the following questions:
+In the README file, I would like you to write a description of your piece that includes a discussion of which techniques you used and how they support your vision.
 
-- Do you think it is complete?
-- If not, what is left to go and how are you going to address it?
-- What was the hardest part?
+In the `reflection.md` file, I would like you to write a reflection.
+
+- What (if anything) still is not complete?
+- If it is not complete, what is left and how are you going to address it?
+- What (if anything) did you struggle with?
 - What, if anything, have you gained by completing this project?
-
 
 ### Revisions
 
-If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed. 
+If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed.
 
+## Submitting
 
-
-## Submitting 
-
-When you are ready to submit, 
 - commit your changes to your git repository (`git add` and `git commit` -- see the [guide](../resources/git) for details)
 - push your changes to GitHub (`git push`). _For 312 alums, don't worry about PRs -- a straight commit is fine_
+- submit the repository on [Gradescope](https://www.gradescope.com/courses/873354/assignments/5191549) ([submission directions](../resources/gradescope))
 
 _Important: it is tempting to treat all of our deadlines as "loose" -- this is a dangerous path! Get **something** done by the deadline and submit. You can always go back to it, and you will get the benefit of my feedback. Just make sure that your reflection acknowledges that it isn't complete._

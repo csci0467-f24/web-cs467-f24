@@ -25,6 +25,8 @@ This is a collection of external resources that you will find useful over the co
 <dl>
   <dt><a href="https://natureofcode.com/book/">The Nature of Code</a></dt>
   <dd>A book all about modeling the natural world using Processing. Note that it does not use p5.js for its examples, but it is otherwise a great resource</dd>
+    <dt><a href="https://www.karlsims.com/rd.html">Reaction-Diffusion Tutorial</a></dt>
+  <dd>The tutorial on the reaction diffusion process that we walked through in class.</dd>
   <dt><a href="http://www.red3d.com/cwr/steer/gdc99/">Steering Behaviors for Autonomous Characters</a></dt>
   <dd>An older paper by Craig Reynolds describing a number of different steering behaviors for autonomous agents.</dd>
   <dt><a href="http://jamie-wong.com/2014/08/19/metaballs-and-marching-squares/">Metaballs and Marching Squares</a></dt>

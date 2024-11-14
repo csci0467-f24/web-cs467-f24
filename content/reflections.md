@@ -63,18 +63,15 @@ Each reflection should answer the following questions (you will have a form to f
 - Are you content with your progress and level of understanding? If not, what road blocks are you encountering and what is the plan for moving past them?
 
 [Week 01 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36156)  
-[Week 02 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36153)
+[Week 02 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36153)  
+[Week 03 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36152)  
+[Week 04 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36157)  
+[Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)  
+[Week 06 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36154)  
+[Week 07 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36160)  
+[Week 08 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36151)  
+[Week 09 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36159)
 
-[Week 03 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36152)
-
-[Week 04 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36157)
-
-[Week 05 reflection](https://middlebury.instructure.com/courses/15588/quizzes/36158)
-
-<!--[Week 07 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28830)
-[Week 08 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28859)
-[Week 09 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28882)
-[Week 10 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28913)
-[Week 11 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28943)
+<!--[Week 11 reflection](https://middlebury.instructure.com/courses/12426/quizzes/28943)
 [Week 12 reflection](https://middlebury.instructure.com/courses/12426/quizzes/29124)
 No Week 13 reflection -- you will be writing an overall course reflection -->

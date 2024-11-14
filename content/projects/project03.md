@@ -1,103 +1,74 @@
 ---
-title: "CS 467 - Project Three: Open Season"
-date: "2023-04-27"
-due: ["2023-05-02T14:15","2023-05-08T17:00", "2023-05-15T17:00"]
-deliverables: ["Project 3 proposal","Project 3 draft","Project 3"]
+title: "CS 467 - Project Three: Advanced Techniques"
+date: "2024-10-30"
+due: ["2024-11-11T14:15", "2024-11-13T14:15"]
+deliverables: ["Project 03 draft", "Project 03"]
 name: "Project 03"
-published: false
+published: true
 ---
-
 
 ## Objective
 
-For your final project, I would like you to show me what you have learned. You can produce almost anything you like. I have just a few requirements for you.
+For your third project, we will see how much you have learned about absorbing new techniques and turning them into something interesting. Your task will be to learn some new technique not covered in class and implement something novel using it.
 
-
-#### Requirements
-- The piece should in some way make use of one of the more advanced techniques we have talked about in the later half of the class: simulation, autonomous agents, or other AI technique
-- The piece should be sufficiently complex that you feel comfortable that it represents the culmination of what you have learned in this class. 
-- There should be a clear vision, with an implementation that follows through on it
-- Everything should work
-
-
-### Going beyond
-
-You are welcome, and encouraged, to stretch beyond what we have done in class. Maybe you want to add some sound? use the camera? incorporate other libraries? That would be great! As I said a few classes back, the tail of the course will be a bit of a smörgåsbord of random topics of interest. If I know enough in advance what you hope to use, we might be able to spend some time on it in class. So let me know sooner rather than later what you think you would like to do. 
-
+\__Note: We will be critiquing drafts at the one week point. Make sure you have something ready to show._
 
 ## Getting Started
 
-
-1. Click the GitHub classroom [link](https://classroom.github.com/a/1LP963OD)
+1. Click the GitHub classroom [link](https://classroom.github.com/a/EjdKcPEz)
 1. Clone the repository GitHub classroom creates to your local computer (in your shell, type `git clone` and the name of the repository)
 
+## Details
 
-## Deadlines
+Once again, the content of the piece is up to you, but it must be centered on a technique that you have learned from outside of class.
 
-There will be several deadlines for the project. 
+Here are some techniques that I think could lead to interesting pieces:
 
-- 2023-05-02 2:15p - Submit a proposal on [Canvas](https://middlebury.instructure.com/courses/12426/assignments/218605)
-- 2023-05-08 5:00p - Submit a first draft
-- 2023-05-15 5:00p - Everything should be fully submitted
+- differential growth
+- slime mold simulation
+- wave function collapse
+- metaballs
+- Mandelbulbs
+- phyllotaxis
+- iterated function systems
 
-The proposal should be typed into the Canvas text entry field. It should 
+If you want to explore something not on this list, please consult with me before you begin.
 
-- clearly describe what you want to do
-- list the techniques that you will make use of
-- list anything you will need to learn in order to complete it
-- list any challenges you forsee in completing it
+Start by looking around for descriptions and tutorials. The Coding Train covers many of these. Use the resources you find to develop a basic working model. Make sure to keep track of and credit any code that you are copying from tutorials.
 
-For the draft, just add a commit to git with a commit message labeling it as the first draft (more advanced git users can use a tag). The README should have a dated section that describes the current state of the draft, including
+I will be looking for evidence that you have taken your chosen technique and made something that was uniquely yours with it. This should involve slightly more than the "change the color" or "add a slider" that I've seen on challenges when I asked for creative additions or extensions.
 
-- what are you current happy with
-- what are you not currently happy with
-- what questions do you have about it
-- what are the biggest challenges going forward
+Along those lines, I would prefer not to see much in the way of user controls. I want you to take ownership over your pieces and create something that reflects what you want to look at rather than a tool for others to explore. That isn't to say user interaction is banned. If the interaction is in some way intrinsic to _experiencing_ the piece, I'm all for it. This could be things like responding to things on the camera or the microphone, or controls for exploring, like on the Mandelbrot viewer I showed in class. I just don't want to see design decisions left to the user like you are designing a tool.
 
+I will expect at least one element that is from the class to play a role in the piece. It could be conceptual (e.g., repetition), a technique (e.g., using noise), or technical (e.g., shaders, audio reactive). This should be something you are adding -- not something intrinsic to the technique (don't implement an IFS and tell me you are using repetition).
 
+### Requirements
 
-## Ideas
+- implements some new technique (either from the list above or with consultation with me)
+- implementation is correct
+- should incorporate one other thing that you have learned class
+- a non-trivial creative addition that makes the piece your own
+- appropriate documentation (described below)
 
-I know it can be difficult to be told "Go make art". Some of you may have some ideas of what you want to do, but if you don't, here are some prompts to potentially get you moving.
+## Documentation and Reflection
 
+In the README file, I would like a description of which technique you are exploring, and how you are using it. Describe the component that comes from the class that you have added. You should also include a full list of your references and parts of your projects can be attributed to them.
 
-- Create some digital nature. A Generative landscape, virtual creatures, or both.
-- Represent memory
-- Create an instrument that can be used to perform images (and maybe sound)
-- Rethink the alphabet. Draw your own glyphs maybe even animate them. 
-- Rethink text. Use text as an input to a generative process.
-- Rethink data. Use data as input to a generative process. Perhaps make a data self-portrait using data about you
-- Rethink communication. 
-- Use the camera to react to the viewer
+In the `reflection.md` file, I would like you to write a reflection.
 
-
-
-## Reflection (Different from previous assignments -- please read)
-
-For the final submission, I would like you to write a brief reflection in the README file. 
-
-Start with a description of the piece and what you were trying to accomplish. Describe the skills and techniques you brought to bear on the piece. 
-
-In a second section I would like you to answer the following questions:
-
-- Do you think it is complete?
-- If not, what would you still like to add or change?
-- What part are you most proud of?
-- What part are you least proud of?
-- What was the hardest part?
+- What (if anything) still is not complete?
+- If it is not complete, what is left and how are you going to address it?
+- What (if anything) did you struggle with?
 - What, if anything, have you gained by completing this project?
-
 
 ### Revisions
 
-If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed. 
+If you revise your submission, please add a _dated_ addition to your reflection that describes what has been changed.
 
+## Submitting
 
-
-## Submitting 
-
-When you are ready to submit, 
 - commit your changes to your git repository (`git add` and `git commit` -- see the [guide](../resources/git) for details)
 - push your changes to GitHub (`git push`). _For 312 alums, don't worry about PRs -- a straight commit is fine_
+- submit the repository on [Gradescope](https://www.gradescope.com/courses/873354/assignments/5246813) ([submission directions](../resources/gradescope))
 
 _Important: it is tempting to treat all of our deadlines as "loose" -- this is a dangerous path! Get **something** done by the deadline and submit. You can always go back to it, and you will get the benefit of my feedback. Just make sure that your reflection acknowledges that it isn't complete._
